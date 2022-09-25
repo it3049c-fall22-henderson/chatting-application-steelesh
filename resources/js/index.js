@@ -6,6 +6,7 @@ const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
 
 updateMessages();
+setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
 
 async function updateMessages() {
   // Fetch Messages
