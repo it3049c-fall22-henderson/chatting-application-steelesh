@@ -52,3 +52,19 @@ function formatMessage(message, myNameInput) {
         `
     }
 }
+
+function sendMessages(username, text) {
+    const newMessage = {
+        sender: username,
+        text: text,
+        timestamp: new Date()
+    }
+
+    fetch (serverURL, {
+        method: `POST`, 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newMessage)
+    });
+}
