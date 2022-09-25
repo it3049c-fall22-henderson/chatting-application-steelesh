@@ -8,7 +8,11 @@ async function updateMessagesInChatBox() {
   // Fetch Messages
   const messages = await fetchMessages();
   // Loop over the messages
-
+  let formattedMessages = "";
+    messages.forEach(message => {
+        formattedMessages += formatMessage(message, nameInput.value);
+    });
+    chatBox.innerHTML = formattedMessages;
 }
 
 function fetchMessages() {
