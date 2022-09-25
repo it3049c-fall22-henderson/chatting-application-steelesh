@@ -5,7 +5,7 @@ const chatBox = document.getElementById("chat");
 const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
 
-updateMessagesInChatBox();
+updateMessages();
 setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
 
 function updateMessagesInChatBox(){
@@ -46,6 +46,17 @@ function formatMessage(message, myNameInput) {
     }
 }
 
+async function updateMessages() {
+  // Fetch Messages
+  const messages = await fetchMessages();
+  // Loop over the messages
+  let formattedMessages = "";
+    messages.forEach(message => {
+        formattedMessages += formatMessage(message, nameInput.value);
+    });
+    chatBox.innerHTML = formattedMessages;
+}
+
 function sendMessages(username, text) {
     const newMessage = {
         sender: username,
@@ -70,14 +81,3 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
     sendMessages(sender,message);
     myMessage.value = "";
 });
-
-async function updateMessages() {
-  // Fetch Messages
-  const messages = await fetchMessages();
-  // Loop over the messages
-  let formattedMessages = "";
-    messages.forEach(message => {
-        formattedMessages += formatMessage(message, nameInput.value);
-    });
-    chatBox.innerHTML = formattedMessages;
-}
