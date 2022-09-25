@@ -5,7 +5,9 @@ const chatBox = document.getElementById("chat");
 const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
 
-async function updateMessagesInChatBox() {
+updateMessages();
+
+async function updateMessages() {
   // Fetch Messages
   const messages = await fetchMessages();
   // Loop over the messages
