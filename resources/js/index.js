@@ -3,6 +3,7 @@ const myMessage = document.getElementById("my-message");
 const sendButton = document.getElementById("send-button");
 const chatBox = document.getElementById("chat");
 const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
+const MILLISECONDS_IN_TEN_SECONDS = 10000;
 
 async function updateMessagesInChatBox() {
   // Fetch Messages
