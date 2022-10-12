@@ -81,3 +81,12 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
     sendMessages(sender,message);
     myMessage.value = "";
 });
+// Disable the message input until a name is provided and saved to the localStorage
+if(localStorage.getItem("Name") != null){
+    myMessage.disabled = false;
+    sendButton.disabled = false;
+}
+else{
+    myMessage.disabled = true;
+    sendButton.disabled = true;
+}
