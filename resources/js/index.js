@@ -90,3 +90,7 @@ else{
     myMessage.disabled = true;
     sendButton.disabled = true;
 }
+// Have a button where users can choose to save their username
+saveButton.addEventListener("click", function(saveButtonClickEveny){
+    localStorage.setItem("Name", nameInput.value)
+});
