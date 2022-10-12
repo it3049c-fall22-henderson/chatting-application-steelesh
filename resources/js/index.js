@@ -92,5 +92,9 @@ else{
 }
 // Have a button where users can choose to save their username
 saveButton.addEventListener("click", function(saveButtonClickEveny){
-    localStorage.setItem("Name", nameInput.value)
+    localStorage.setItem("Name", nameInput.value);
 });
+// Allow users to modify their saved name.
+if (localStorage.getItem("Name") != null) {
+    saveButton.innerText = "Modify"
+}
